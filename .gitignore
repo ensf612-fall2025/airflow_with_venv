@@ -1,0 +1,48 @@
+# Python virtual environment
+venv/
+env/
+.env/
+.venv/
+airflow_venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Airflow specific
+airflow.db
+airflow.cfg
+unittests.cfg
+webserver_config.py
+logs/
+*.log
+airflow-webserver.pid
+airflow-scheduler.pid
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Local development settings
+.env
+*.local
+
+# Database files
+*.sqlite3
+*.db
+
+# Temporary files
+*.tmp
+*.bak
+
+# password
+*.generated
