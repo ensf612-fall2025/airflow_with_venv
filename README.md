@@ -1,4 +1,8 @@
 ## Steps to install Apache Airflow
+0. Create directory for Airflow Project:
+- `mkdir ~/big_data/airflow_with_venv`
+- `cd ~/big_data/airflow_with_venv`
+
 1. Create your virtual environment to isolate dependencies:
 - `python3.12 -m venv airflow_venv` - on Linux and MacOS
 - `py -3.12 -m venv airflow_venv` - on Windows (or Use WSL with Linux command above)
