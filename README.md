@@ -36,7 +36,7 @@ Alternatively, go to the folder: `code ~/big_data/airflow_with_venv`.
 
 ## Additional Information
 - Hide Example Dags to declutter UI: 
-    - in your terminal: `export AIRFLOW_CORE_LOAD_EXAMPLES=False`
+    - in your terminal: `export AIRFLOW__CORE__LOAD_EXAMPLES=False`
     - then run: `airflow db reset`
     - then `airflow standalone`
 
