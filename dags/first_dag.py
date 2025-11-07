@@ -2,6 +2,8 @@ from datetime import datetime, timedelta, timezone
 
 from airflow.sdk import DAG, dag, task
 from airflow.providers.standard.operators.empty import EmptyOperator
+from airflow.providers.standard.operators.bash import BashOperator
+from airflow.providers.standard.operators.python import PythonOperator
 
 # Often, many Operators inside a Dag need the same set of default arguments (such as their retries). 
 # Rather than having to specify this individually for every Operator, 
@@ -19,7 +21,18 @@ with DAG(
     description="A simple tutorial DAG",
     default_args=default_args,
 ) as context_dag:
-    op = EmptyOperator(task_id="task_1")
+    
+    task_1 = EmptyOperator(task_id="task_1")
+
+    task_2 = BashOperator(
+        task_id="print_date",
+        bash_command="date",
+    )
+    task_3 = PythonOperator(
+        task_id="print_hello",
+        python_callable=lambda: print("Hello, World!"),
+        retries=3,  # This will override the default_args retries value
+    )
 
 
 # Or, you can use a standard constructor, passing the dag into any operators you use:
@@ -29,11 +42,11 @@ my_dag = DAG("Second_ensf612_dag", start_date=datetime(2021, 1, 1, tzinfo=timezo
 op = EmptyOperator(task_id="task_2", dag=my_dag)
 
 
-# Or, you can use the @dag decorator to turn a function into a DAG generator:
+# # Or, you can use the @dag decorator to turn a function into a DAG generator:
 @dag(start_date=datetime(2021, 1, 1, tzinfo=timezone.utc), 
      schedule="@daily", catchup=False, tags=["decorator"])
 def generate_dag():
     op = EmptyOperator(task_id="task_3")
 
-dag_decorator = generate_dag()
+# dag_decorator = generate_dag()
 

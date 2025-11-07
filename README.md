@@ -40,4 +40,4 @@ Alternatively, go to the folder: `code ~/big_data/airflow_with_venv`.
     - then run: `airflow db reset`
     - then `airflow standalone`
 
-- Show/hide Configs from UI: `export AIRFLOW__API__EXPOSE_CONFIG=True` 
+- Show/hide Configs from UI: `export AIRFLOW__API__EXPOSE_CONFIG=True`
