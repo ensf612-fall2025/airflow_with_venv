@@ -33,3 +33,11 @@
 to access it, you can run `cat ~/big_data/airflow_with_venv/simple_auth_manager_passwords.json.generated` to print to the console.
 Alternatively, go to the folder: `code ~/big_data/airflow_with_venv`.
 
+
+## Additional Information
+- Hide Example Dags to declutter UI: 
+    - in your terminal: `export AIRFLOW_CORE_LOAD_EXAMPLES=False`
+    - then run: `airflow db reset`
+    - then `airflow standalone`
+
+- Show/hide Configs from UI: `export AIRFLOW__API__EXPOSE_CONFIG=True` 
