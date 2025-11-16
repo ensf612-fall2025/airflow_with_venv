@@ -36,17 +36,17 @@ with DAG(
 
 
 # Or, you can use a standard constructor, passing the dag into any operators you use:
-my_dag = DAG("Second_ensf612_dag", start_date=datetime(2021, 1, 1, tzinfo=timezone.utc),
-             schedule="@daily", catchup=False)
+# my_dag = DAG("Second_ensf612_dag", start_date=datetime(2021, 1, 1, tzinfo=timezone.utc),
+#              schedule="@daily", catchup=False)
 
-op = EmptyOperator(task_id="task_2", dag=my_dag)
+# op = EmptyOperator(task_id="task_2", dag=my_dag)
 
 
 # # Or, you can use the @dag decorator to turn a function into a DAG generator:
-@dag(start_date=datetime(2021, 1, 1, tzinfo=timezone.utc), 
-     schedule="@daily", catchup=False, tags=["decorator"])
-def generate_dag():
-    op = EmptyOperator(task_id="task_3")
+# @dag(start_date=datetime(2021, 1, 1, tzinfo=timezone.utc), 
+#      schedule="@daily", catchup=False, tags=["decorator"])
+# def generate_dag():
+#     op = EmptyOperator(task_id="task_3")
 
 # dag_decorator = generate_dag()
 
